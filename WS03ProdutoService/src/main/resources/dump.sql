@@ -17,10 +17,10 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: id-produto; Type: SEQUENCE; Schema: public; Owner: ti2cc
+-- Name: id-carro; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public."id-produto"
+CREATE SEQUENCE public."id-carro"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -28,34 +28,34 @@ CREATE SEQUENCE public."id-produto"
     CACHE 1;
 
 
-ALTER TABLE public."id-produto" OWNER TO ti2cc;
+ALTER TABLE public."id-carro" OWNER TO postgres;
 
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- Name: produto; Type: TABLE; Schema: public; Owner: ti2cc
+-- Name: carro; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.produto (
-    id integer DEFAULT nextval('public."id-produto"'::regclass) NOT NULL,
-    descricao text,
+CREATE TABLE public.carro (
+    id integer DEFAULT nextval('public."id-carro"'::regclass) NOT NULL,
+    cor text,
+    modelo text,
+    marca text,
     preco double precision,
-    quantidade integer,
-    datafabricacao timestamp without time zone,
-    datavalidade date
+    ano integer
 );
 
 
-ALTER TABLE public.produto OWNER TO ti2cc;
+ALTER TABLE public.carro OWNER TO postgres;
 
 --
--- Name: produto produto_pkey; Type: CONSTRAINT; Schema: public; Owner: ti2cc
+-- Name: carro carro_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.produto
-    ADD CONSTRAINT produto_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY public.carro
+    ADD CONSTRAINT carro_pkey PRIMARY KEY (id);
 
 
 --

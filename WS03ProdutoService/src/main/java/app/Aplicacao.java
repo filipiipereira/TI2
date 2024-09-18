@@ -1,29 +1,28 @@
 package app;
 
 import static spark.Spark.*;
-import service.ProdutoService;
-
+import service.CarroService;
 
 public class Aplicacao {
 	
-	private static ProdutoService produtoService = new ProdutoService();
+	private static CarroService carroService = new CarroService();
 	
     public static void main(String[] args) {
         port(6789);
         
         staticFiles.location("/public");
         
-        post("/produto/insert", (request, response) -> produtoService.insert(request, response));
+        post("/carro/insert", (request, response) -> carroService.insert(request, response));
 
-        get("/produto/:id", (request, response) -> produtoService.get(request, response));
+        get("/carro/:id", (request, response) -> carroService.get(request, response));
         
-        get("/produto/list/:orderby", (request, response) -> produtoService.getAll(request, response));
+        get("/carro/list/:orderby", (request, response) -> carroService.getAll(request, response));
 
-        get("/produto/update/:id", (request, response) -> produtoService.getToUpdate(request, response));
+        get("/carro/update/:id", (request, response) -> carroService.getToUpdate(request, response));
         
-        post("/produto/update/:id", (request, response) -> produtoService.update(request, response));
+        post("/carro/update/:id", (request, response) -> carroService.update(request, response));
            
-        get("/produto/delete/:id", (request, response) -> produtoService.delete(request, response));
+        get("/carro/delete/:id", (request, response) -> carroService.delete(request, response));
 
              
     }
