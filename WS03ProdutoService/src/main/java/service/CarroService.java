@@ -63,11 +63,11 @@ public class CarroService {
 			if (tipo == FORM_INSERT){
 				action += "insert";
 				name = "Inserir Carro";
-				modelo = "mobi, onix, ...";
+				modelo = "sandero, onix, ...";
 				buttonLabel = "Inserir";
 			} else {
 				action += "update/" + carro.getID();
-				name = "Atualizar Carrp (ID " + carro.getID() + ")";
+				name = "Atualizar Carro (ID " + carro.getID() + ")";
 				modelo = carro.getModelo();
 				buttonLabel = "Atualizar";
 			}

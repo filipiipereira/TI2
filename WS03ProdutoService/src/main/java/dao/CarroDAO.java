@@ -27,9 +27,9 @@ public class CarroDAO extends DAO {
 	public boolean insert(Carro carro) {
 		boolean status = false;
 		try {
-			String sql = "INSERT INTO carro (cor, modelo, marca, modelo, preco, ano) "
-		               + "VALUES ('" + carro.getCor() + "', "
-		               + carro.getModelo() + ", " + carro.getMarca() + ", " + carro.getPreco() + ", " + carro.getAno() + ");";
+			String sql = "INSERT INTO carro (cor, modelo, marca, preco, ano) "
+		               + "VALUES ('" + carro.getCor() + "', '"
+		               + carro.getModelo() + "', '" + carro.getMarca() + "', " + carro.getPreco() + ", " + carro.getAno() + ");";
 			PreparedStatement st = conexao.prepareStatement(sql);
 			st.executeUpdate();
 			st.close();
@@ -108,8 +108,8 @@ public class CarroDAO extends DAO {
 		boolean status = false;
 		try {  
 			String sql = "UPDATE carro SET cor = '" + carro.getCor() + "', "
-					   + "modelo = " + carro.getModelo() + ", "
-					   + "marca = " + carro.getMarca() + ", " 
+					   + "modelo = '" + carro.getModelo() + "', "
+					   + "marca = '" + carro.getMarca() + "', " 
 					   + "preco = " + carro.getPreco() + ", " 
 					   + "ano = " + carro.getAno() + "  WHERE id = " + carro.getID();
 			PreparedStatement st = conexao.prepareStatement(sql);
